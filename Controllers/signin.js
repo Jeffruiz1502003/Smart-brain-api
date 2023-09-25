@@ -11,7 +11,7 @@ const handleSignin = (req, res, db, bcrypt) => {
 			console.log(isValid);
 			if (isValid) {
 				return db.select('*').from('users')
-					.where('email', '=', email) 
+					.where('email', '=', email)  
 					.then(user => {
 						console.log(user);
 						res.json(user[0])
@@ -24,6 +24,4 @@ const handleSignin = (req, res, db, bcrypt) => {
 		.catch(err => res.status(400).json('wrong credentials'))
 }
 
-module.exports = {
-	handleSignin: handleSignin
-}
+export default handleSignin;
