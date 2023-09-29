@@ -2,7 +2,7 @@
 const handleRegister = (req, res, db, bcrypt) => {
 	const { email, name, password } = req.body;
 	if (!email || !name || !password) {
-		res.status(400).json('incorrect form submission');
+		return res.status(400).json('incorrect form submission');
 	}
 	const hash = bcrypt.hashSync(password);
 		db.transaction(trx => {
@@ -20,8 +20,8 @@ const handleRegister = (req, res, db, bcrypt) => {
 						name: name,
 						joined: new Date()
 					})
-					.then(users => {
-							res.json(users[0]);
+					.then(user => {
+							res.json(user[0]);
 					})
 			})
 			.then(trx.commit)
