@@ -14,4 +14,4 @@ const handleProfileGet = (req, res) => {
 	// }
 }
 
-export default handleProfileGet;
+exports.handleProfileGet = handleProfileGet;

@@ -1,4 +1,4 @@
-import Clarifai from 'clarifai';
+const Clarifai = require('clarifai');
 const app = new Clarifai.App({
  apiKey: 'aaf77188644b475ab1a843fdfa49c43e'
 });
@@ -23,4 +23,6 @@ const handleImage = (req, res) => {
 	.catch(err => res.status(400).json('unable to get entries'))
 }
 
-export default { handleImage, handleApiCall }
+module.exports = { 
+	handleImage, handleApiCall 
+}
