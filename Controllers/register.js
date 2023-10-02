@@ -20,8 +20,8 @@ const handleRegister = (req, res, db, bcrypt) => {
 						name: name,
 						joined: new Date()
 					})
-					.then(users => {
-							res.json(users[0]);
+					.then(user => {
+							res.json(user[0]);
 					})
 			})
 			.then(trx.commit)
